@@ -31,9 +31,9 @@ public class QuestionPaysLangue extends Question{
 		while(index<Constantes.NB_REPONSES-1)
 		{
 			ligne = langage.get((int)(Math.random()*langage.size()));
-			if(reponseAbsente(ligne.getLiteral("?nomPays").getString()))
+			if(reponseAbsente(ligne.getLiteral("?nomLangue").getString()))
 			{
-				this.mauvaisesReponses[index]=ligne.getLiteral("?nomPays").getString();
+				this.mauvaisesReponses[index]=ligne.getLiteral("?nomLangue").getString();
 				index++;
 			}
 		}
@@ -42,7 +42,7 @@ public class QuestionPaysLangue extends Question{
 	else
 	{
 
-		this.enonce = "Dans quelle pays la langue"+ligne.getLiteral("?nomLangue").getString()+" est t'elle utilisée ?";
+		this.enonce = "Dans quelle pays la langue"+ligne.getLiteral("?nomLangue").getString()+" est t'elle utilisÃ©e ?";
 		this.bonneReponse= ligne.getLiteral("?nomPays").getString();
 
 		int index=0;

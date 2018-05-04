@@ -9,6 +9,7 @@ import fr.uha.ensisa.dbpediaquizz.util.DBpediaQuery;
 
 public class QuestionSportOlympique extends Question {
 	public QuestionSportOlympique() {
+		super(Constantes.GEOGRAPHIE);
 		String requete = "select ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>."
                           + "?sport foaf:name ?nomSport."
                           + "?sport prop-fr:olympique ?olympique."
