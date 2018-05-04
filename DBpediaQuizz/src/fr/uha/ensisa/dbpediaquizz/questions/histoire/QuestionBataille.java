@@ -12,7 +12,7 @@ public class QuestionBataille extends Question {
 
 	public QuestionBataille()
 	{
-		super(Constantes.GEOGRAPHIE);
+		super(Constantes.HISTOIRE);
 		//Récupère toutes les capitales
 		String requete = "select ?nomBataille ?localisation ?victoire where {?g a <http://dbpedia.org/ontology/MilitaryConflict.>" + 
 				"                 ?g rdfs:label ?nomBataille." + 

@@ -12,7 +12,7 @@ public class QuestionChateau extends Question{
 
 	public QuestionChateau()
 	{
-		super(Constantes.GEOGRAPHIE);
+		super(Constantes.HISTOIRE);
 		//Récupère toutes les capitales
 		String requete = "select ?nomChateau ?pays ?nomProp where { ?chateau a <http://dbpedia.org/ontology/Castle>." + 
 				"                                       ?chateau prop-fr:propriétaireInitial ?prop." + 

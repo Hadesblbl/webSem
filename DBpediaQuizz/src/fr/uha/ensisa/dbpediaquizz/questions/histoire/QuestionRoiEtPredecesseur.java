@@ -15,14 +15,16 @@ public class QuestionRoiEtPredecesseur extends Question {
 		super(Constantes.HISTOIRE);
 		//Récupère tous les rois et leurs prédecesseurs
 		String requete = "select distinct ?nomRoi ?nomPredecesseur where {?roi a <http://dbpedia.org/ontology/Royalty>. "
-																		+ "?roi <http://fr.dbpedia.org/property/prédécesseur> ?pred. "
-																		+ "?roi <http://www.w3.org/2000/01/rdf-schema#label> ?nomRoi. "
-																		+ "?pred <http://www.w3.org/2000/01/rdf-schema#label> ?nomPredecesseur. "
-																		+ "FILTER(lang(?nomRoi)='fr'). "
-																		+ "FILTER(lang(?nomPredecesseur)='fr').}";
+				+ "?roi <http://fr.dbpedia.org/property/prédécesseur> ?pred. "
+				+ "?roi <http://www.w3.org/2000/01/rdf-schema#label> ?nomRoi. "
+				+ "?pred <http://www.w3.org/2000/01/rdf-schema#label> ?nomPredecesseur. "
+				+ "FILTER(lang(?nomRoi)='fr'). "
+				+ "FILTER(lang(?nomPredecesseur)='fr').}";
 		List<QuerySolution> lignees = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = lignees.get((int)(Math.random()*lignees.size()));
 
+		if(Math.random()<0.5)
+		{
 
 			this.enonce = "Quel est le prédecesseur du roi "+ligne.getLiteral("?nomRoi").getString()+" ?";
 			this.bonneReponse= ligne.getLiteral("?nomPredecesseur").getString();
@@ -37,6 +39,24 @@ public class QuestionRoiEtPredecesseur extends Question {
 					index++;
 				}
 			}
+		}
+		else
+		{
+
+			this.enonce = "Quel est le successeur du roi "+ligne.getLiteral("?nomPredecesseur").getString()+" ?";
+			this.bonneReponse= ligne.getLiteral("?nomRoi").getString();
+
+			int index=0;
+			while(index<Constantes.NB_REPONSES-1)
+			{
+				ligne = lignees.get((int)(Math.random()*lignees.size()));
+				if(!this.bonneReponse.equalsIgnoreCase(ligne.getLiteral("?nomRoi").getString()))
+				{
+					this.mauvaisesReponses[index]=ligne.getLiteral("?nomRoi").getString();
+					index++;
+				}
+			}
+		}
 
 	}
 

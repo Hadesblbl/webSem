@@ -15,31 +15,31 @@ public class QuestionChampionnatFranceFootball extends Question {
 		super(Constantes.SPORT);
 		//Récupère tous les championnats de France de Football (Pro Division 1)
 		String requete = "select ?nomTournoi ?nomVainqueur where {<http://fr.dbpedia.org/resource/Championnat_de_France_de_football_1932-1933> <http://dbpedia.org/ontology/followingEvent>* ?tournoi. "
-																		+ "?tournoi <http://dbpedia.org/ontology/soccerLeagueWinner> ?vainqueur. "
-																		+ "?tournoi <http://www.w3.org/2000/01/rdf-schema#label> ?nomTournoi. "
-																		+ "?vainqueur <http://www.w3.org/2000/01/rdf-schema#label> ?nomVainqueur. "
-																		+ "FILTER(lang(?nomTournoi)='fr'). "
-																		+ "FILTER(lang(?nomVainqueur)='fr'). } ";
+				+ "?tournoi <http://dbpedia.org/ontology/soccerLeagueWinner> ?vainqueur. "
+				+ "?tournoi <http://www.w3.org/2000/01/rdf-schema#label> ?nomTournoi. "
+				+ "?vainqueur <http://www.w3.org/2000/01/rdf-schema#label> ?nomVainqueur. "
+				+ "FILTER(lang(?nomTournoi)='fr'). "
+				+ "FILTER(lang(?nomVainqueur)='fr'). } ";
 		//String requete = "select distinct ?tournoi where {<http://fr.dbpedia.org/resource/Championnat_de_France_de_football_1932-1933> <http://dbpedia.org/ontology/followingEvent>* ?tournoi. }";
-		List<QuerySolution> chamionnats = DBpediaQuery.execRequete(requete);
-		QuerySolution ligne = chamionnats.get((int)(Math.random()*chamionnats.size()));
+		List<QuerySolution> championnats = DBpediaQuery.execRequete(requete);
+		QuerySolution ligne = championnats.get((int)(Math.random()*championnats.size()));
 
 
 
-			this.enonce = "Quelle équipe a gagné le "+ligne.getLiteral("?nomTournoi").getString()+" ?";
-			this.bonneReponse= ligne.getLiteral("?nomVainqueur").getString();
+		this.enonce = "Quelle équipe a gagné le "+ligne.getLiteral("?nomTournoi").getString()+" ?";
+		this.bonneReponse= ligne.getLiteral("?nomVainqueur").getString();
 
-			int index=0;
-			while(index<Constantes.NB_REPONSES-1)
+		int index=0;
+		while(index<Constantes.NB_REPONSES-1)
+		{
+			ligne = championnats.get((int)(Math.random()*championnats.size()));
+			if(reponseAbsente(ligne.getLiteral("?nomVainqueur").getString()))
 			{
-				ligne = chamionnats.get((int)(Math.random()*chamionnats.size()));
-				if(reponseAbsente(ligne.getLiteral("?nomVainqueur").getString()))
-				{
-					this.mauvaisesReponses[index]=ligne.getLiteral("?nomVainqueur").getString();
-					index++;
-				}
+				this.mauvaisesReponses[index]=ligne.getLiteral("?nomVainqueur").getString();
+				index++;
 			}
-		
+		}
+
 
 
 	}

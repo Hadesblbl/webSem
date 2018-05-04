@@ -10,12 +10,12 @@ import fr.uha.ensisa.dbpediaquizz.util.DBpediaQuery;
 
 public class QuestionSportOlympique extends Question {
 	public QuestionSportOlympique() {
-		super(Constantes.GEOGRAPHIE);
+		super(Constantes.SPORT);
 		String requete = "select ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>."
-                          + "?sport foaf:name ?nomSport."
-                          + "?sport prop-fr:olympique ?olympique."
-                          + "FILTER (?olympique<2018)"
-                          + "FILTER (lang(?nomSport) = 'fr')}";
+				+ "?sport foaf:name ?nomSport."
+				+ "?sport prop-fr:olympique ?olympique."
+				+ "FILTER (?olympique<2018)"
+				+ "FILTER (lang(?nomSport) = 'fr')}";
 		List<QuerySolution> olympique = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = olympique.get((int)(Math.random()*olympique.size()));
 
@@ -36,7 +36,7 @@ public class QuestionSportOlympique extends Question {
 				}
 			}
 		}
-		
+
 		else
 		{
 
@@ -55,7 +55,7 @@ public class QuestionSportOlympique extends Question {
 			}
 		}
 
-            
+
 	}
 
 }
