@@ -3,7 +3,6 @@ package fr.uha.ensisa.dbpediaquizz;
 import java.util.Scanner;
 
 import fr.uha.ensisa.dbpediaquizz.questions.Question;
-import fr.uha.ensisa.dbpediaquizz.questions.QuestionFactory;
 import fr.uha.ensisa.dbpediaquizz.themes.Theme;
 import fr.uha.ensisa.dbpediaquizz.themes.ThemeFactory;
 import fr.uha.ensisa.dbpediaquizz.util.Constantes;

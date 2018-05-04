@@ -14,13 +14,18 @@ public class ThemeGeneral extends Theme{
 		Theme theme;
 		switch(questionType)
 		{
-			case 0 : 	theme=new ThemeGeographie();
-						break;
-			case 1 :	theme=new ThemeHistoire();
-						break;		
-			case 2 :    theme=new ThemeSport();
-			default : 	theme=new ThemeCulture();
-						break;
+		case 0 : 	
+			theme=new ThemeGeographie();
+			break;
+		case 1 :	
+			theme=new ThemeHistoire();
+			break;		
+		case 2 :    
+			theme=new ThemeSport();
+			break;
+		default :
+			theme=new ThemeCulture();
+			break;
 		}
 		return theme.createQuestion();
 	}

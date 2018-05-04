@@ -6,18 +6,18 @@ import java.util.Scanner;
 import fr.uha.ensisa.dbpediaquizz.util.Constantes;
 
 public abstract class Question {
-	
+
 	protected int categorie;
 	protected String enonce;
 	protected String bonneReponse;
 	protected String[] mauvaisesReponses;
-	
+
 	public Question(int categorie)
 	{
 		this.categorie=categorie;
 		this.mauvaisesReponses= new String[3];
 	}
-	
+
 	public int ask(Scanner entry)
 	{
 		//Place les réponses dans le désordre
@@ -61,7 +61,7 @@ public abstract class Question {
 		}
 		return score;
 	}
-	
+
 	protected boolean reponseAbsente(String nouvelleReponse)
 	{
 		boolean absent=true;
@@ -82,6 +82,6 @@ public abstract class Question {
 		return absent;
 	}
 
-	
+
 
 }

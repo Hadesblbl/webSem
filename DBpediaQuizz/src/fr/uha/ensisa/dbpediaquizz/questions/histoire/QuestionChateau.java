@@ -28,7 +28,7 @@ public class QuestionChateau extends Question{
 		if(Math.random()<0.5)
 		{
 
-			this.enonce = "A qui appartenait initilament le "+ligne.getLiteral("?nomChateau").getString()+" situé en "+ligne.getLiteral("?pays").getString()+" ?";
+			this.enonce = "À qui appartenait initialement le "+ligne.getLiteral("?nomChateau").getString()+" situé en "+ligne.getLiteral("?pays").getString()+" ?";
 			this.bonneReponse= ligne.getLiteral("?nomProp").getString();
 
 			int index=0;

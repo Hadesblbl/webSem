@@ -1,9 +1,9 @@
 package fr.uha.ensisa.dbpediaquizz.themes;
 
 import fr.uha.ensisa.dbpediaquizz.questions.Question;
-import fr.uha.ensisa.dbpediaquizz.questions.geographie.QuestionCapitale;
-import fr.uha.ensisa.dbpediaquizz.questions.histoire.QuestionRoiEtPredecesseur;
 import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionChampionnatFranceFootball;
+import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionJoueurFoot;
+import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionSportOlympique;
 
 public class ThemeSport extends Theme{
 
@@ -13,12 +13,15 @@ public class ThemeSport extends Theme{
 		Question question;
 		switch(questionType)
 		{
-			case 0 : 	question=new QuestionCapitale();
-						break;
-			case 1 :	question=new QuestionRoiEtPredecesseur();
+		case 0 : 	
+			question=new QuestionChampionnatFranceFootball();
+			break;
+		case 1 :	
+			question=new QuestionJoueurFoot();
 			break;			
-			default : 	question= new QuestionChampionnatFranceFootball();
-						break;
+		default : 	
+			question= new QuestionSportOlympique();
+			break;
 		}
 		return question;
 	}
