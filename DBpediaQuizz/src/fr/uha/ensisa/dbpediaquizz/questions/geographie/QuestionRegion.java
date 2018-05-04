@@ -12,18 +12,18 @@ public class QuestionRegion extends Question{
 	public QuestionRegion()
 	{
 		super(Constantes.GEOGRAPHIE);
-		//Récupération de toutes les villes de plus de 100000 habitants
+		//Récupération de toutes les villes de plus de 100 000 habitants
 		String requete = "select ?nomVille ?nomRegion where {?ville <http://dbpedia.org/ontology/region> ?region. "
-                + "?region <http://www.w3.org/2000/01/rdf-schema#label> ?nomRegion."
-                + "?ville <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Settlement>." 
-                + "?ville <http://www.w3.org/2000/01/rdf-schema#label> ?nomVille." 
-                + "?ville <http://dbpedia.org/ontology/populationTotal> ?population." 
-                + "FILTER (lang(?nomVille) = 'fr')"
-                + "FILTER (lang(?nomRegion) = 'fr')"
-                + "FILTER (?population > 100000)}";
+				+ "?region <http://www.w3.org/2000/01/rdf-schema#label> ?nomRegion."
+				+ "?ville <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://dbpedia.org/ontology/Settlement>." 
+				+ "?ville <http://www.w3.org/2000/01/rdf-schema#label> ?nomVille." 
+				+ "?ville <http://dbpedia.org/ontology/populationTotal> ?population." 
+				+ "FILTER (lang(?nomVille) = 'fr')"
+				+ "FILTER (lang(?nomRegion) = 'fr')"
+				+ "FILTER (?population > 100000)}";
 		List<QuerySolution> villes = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = villes.get((int)(Math.random()*villes.size()));
-		
+
 		if(Math.random()<0.5)
 		{
 
@@ -41,7 +41,7 @@ public class QuestionRegion extends Question{
 				}
 			}
 		}
-		
+
 		else
 		{
 
@@ -59,6 +59,6 @@ public class QuestionRegion extends Question{
 				}
 			}
 		}
-		
+
 	}
 }

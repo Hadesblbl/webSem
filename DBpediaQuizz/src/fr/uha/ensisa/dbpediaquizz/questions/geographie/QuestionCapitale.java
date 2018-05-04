@@ -43,7 +43,7 @@ public class QuestionCapitale extends Question {
 		else
 		{
 
-			this.enonce = "De quoi "+ligne.getLiteral("?nomVille").getString()+" est la capitale ?";
+			this.enonce = "De quel pays "+ligne.getLiteral("?nomVille").getString()+" est la capitale ?";
 			this.bonneReponse= ligne.getLiteral("?nomPays").getString();
 
 			int index=0;

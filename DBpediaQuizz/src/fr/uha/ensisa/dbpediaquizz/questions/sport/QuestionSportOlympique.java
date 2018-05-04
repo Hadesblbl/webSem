@@ -12,8 +12,8 @@ public class QuestionSportOlympique extends Question {
 	public QuestionSportOlympique() {
 		super(Constantes.SPORT);
 		String requete = "select ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>."
-				+ "?sport foaf:name ?nomSport."
-				+ "?sport prop-fr:olympique ?olympique."
+				+ "?sport <http://xmlns.com/foaf/spec/#term_name> ?nomSport."
+				+ "?sport <http://fr.dbpedia.org/property/olympique> ?olympique."
 				+ "FILTER (?olympique<2018)"
 				+ "FILTER (lang(?nomSport) = 'fr')}";
 		List<QuerySolution> olympique = DBpediaQuery.execRequete(requete);

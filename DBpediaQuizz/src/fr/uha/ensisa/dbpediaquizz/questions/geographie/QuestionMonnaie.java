@@ -13,13 +13,12 @@ public class QuestionMonnaie extends Question{
 	public QuestionMonnaie()
 	{
 		super(Constantes.GEOGRAPHIE);
-		//Récupère toutes les capitales
 		String requete = "select ?nomPays ?nomDevise WHERE { ?pays a <http://dbpedia.org/ontology/Country>." + 
-				"                        ?pays rdfs:label ?nomPays." + 
-				"                        ?pays dbpedia-owl:currency ?devise." + 
-				"                        ?devise prop-fr:codeiso ?nomDevise." + 
-				"                        FILTER (lang(?nomPays)='fr')." + 
-				"                        FILTER (lang(?nomDevise)='fr').}";
+				"?pays <http://www.w3.org/2000/01/rdf-schema#label> ?nomPays." + 
+				"?pays <http://dbpedia.org/ontology/currency> ?devise." + 
+				"?devise <http://fr.dbpedia.org/property/codeiso> ?nomDevise." + 
+				"FILTER (lang(?nomPays)='fr')." + 
+				"FILTER (lang(?nomDevise)='fr').}";
 		List<QuerySolution> monnaies = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = monnaies.get((int)(Math.random()*monnaies.size()));
 

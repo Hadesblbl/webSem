@@ -11,11 +11,10 @@ import fr.uha.ensisa.dbpediaquizz.util.DBpediaQuery;
 public class QuestionJoueurFoot extends Question{
 	public QuestionJoueurFoot() {
 		super(Constantes.SPORT);
-		//Récupère toutes les capitales
 		String requete = "select ?nomJoueur ?nomEquipe WHERE { ?joueur a <http://dbpedia.org/ontology/SoccerPlayer>." + 
-				"?joueur dbpedia-owl:currentTeam ?equipe." + 
-				"?joueur dbpedia-owl:birthName ?nomJoueur." + 
-				"?equipe rdfs:label ?nomEquipe" + 
+				"?joueur <http://dbpedia.org/ontology/currentTeam> ?equipe." + 
+				"?joueur <http://dbpedia.org/ontology/birthName> ?nomJoueur." + 
+				"?equipe <http://www.w3.org/2000/01/rdf-schema#label> ?nomEquipe" + 
 				"FILTER (lang(?nomEquipe)='fr')}";
 		List<QuerySolution> joueurs = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = joueurs.get((int)(Math.random()*joueurs.size()));

@@ -13,13 +13,12 @@ public class QuestionDynastieRoi extends Question{
 	public QuestionDynastieRoi()
 	{
 		super(Constantes.HISTOIRE);
-		//Récupère toutes les capitales
 		String requete = "select ?nomRoi ?nomDy ?fonction {?roi a <http://dbpedia.org/ontology/Royalty>." + 
 				"?roi a <http://dbpedia.org/ontology/Agent>." + 
-				"?roi dbpedia-owl:dynasty ?surnom." + 
-				"?roi rdfs:label ?nomRoi." + 
-				"?roi prop-fr:fonction ?fonction." + 
-				"?surnom rdfs:label ?nomDy" + 
+				"?roi <http://dbpedia.org/ontology/dynasty> ?surnom." + 
+				"?roi <http://www.w3.org/2000/01/rdf-schema#label> ?nomRoi." + 
+				"?roi <http://fr.dbpedia.org/property/fonction> ?fonction." + 
+				"?surnom <http://www.w3.org/2000/01/rdf-schema#label> ?nomDy" + 
 				"FILTER (lang(?nomRoi)='fr')." + 
 				"FILTER (lang(?nomDy)='fr')." + 
 				"FILTER (lang(?fonction)='fr')}";

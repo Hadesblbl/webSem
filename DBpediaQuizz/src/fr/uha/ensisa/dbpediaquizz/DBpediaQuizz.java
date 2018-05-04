@@ -14,12 +14,12 @@ public class DBpediaQuizz {
 		int currentQuestion=0, score=0;
 		Scanner entry = new Scanner(System.in);
 		System.out.println("******* DBpedia Quizz *******");
-		System.out.println("Choisissez votre thème parmi les thèmes suivants :\n");
-		System.out.println("0. Géographie\n");
-		System.out.println("1. Histoire\n");
-		System.out.println("2. Sport\n");
-		System.out.println("3. Culture\n");
-		System.out.println("4. Général (Tous types de questions confondus)\n");
+		System.out.println("Choisissez votre thème parmi les thèmes suivants :");
+		System.out.println("0. Géographie");
+		System.out.println("1. Histoire");
+		System.out.println("2. Sport");
+		System.out.println("3. Culture");
+		System.out.println("4. Général (Tous types de questions confondus)");
 		int choisi=entry.nextInt();
 		Theme theme = ThemeFactory.createTheme(choisi);
 		System.out.println("C'est parti pour "+Constantes.NB_QUESTIONS+" questions !");

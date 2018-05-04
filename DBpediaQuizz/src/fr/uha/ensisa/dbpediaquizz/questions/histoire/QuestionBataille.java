@@ -13,11 +13,10 @@ public class QuestionBataille extends Question {
 	public QuestionBataille()
 	{
 		super(Constantes.HISTOIRE);
-		//Récupère toutes les capitales
 		String requete = "select ?nomBataille ?localisation ?victoire where {?g a <http://dbpedia.org/ontology/MilitaryConflict.>" + 
-				"                 ?g rdfs:label ?nomBataille." + 
-				"                 ?g prop-fr:géolocalisation ?localisation." + 
-				"                 ?g dbpedia-owl:result ?victoire." + 
+				"                 ?g <http://www.w3.org/2000/01/rdf-schema#label> ?nomBataille." + 
+				"                 ?g <http://fr.dbpedia.org/property/géolocalisation> ?localisation." + 
+				"                 ?g <http://dbpedia.org/ontology/result> ?victoire." + 
 				"                 FILTER (lang(?gnom)='fr')." + 
 				"                 FILTER regex (?victoire, \"victoire\")}";
 		List<QuerySolution> batailles = DBpediaQuery.execRequete(requete);
