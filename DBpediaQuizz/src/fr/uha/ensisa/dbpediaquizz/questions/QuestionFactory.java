@@ -1,5 +1,9 @@
 package fr.uha.ensisa.dbpediaquizz.questions;
 
+import fr.uha.ensisa.dbpediaquizz.questions.geographie.QuestionCapitale;
+import fr.uha.ensisa.dbpediaquizz.questions.histoire.QuestionRoiEtPredecesseur;
+import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionChampionnatFranceFootball;
+
 public class QuestionFactory {
 
 	public static Question createQuestion()

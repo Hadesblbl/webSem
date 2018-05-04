@@ -1,9 +1,9 @@
 package fr.uha.ensisa.dbpediaquizz.themes;
 
 import fr.uha.ensisa.dbpediaquizz.questions.Question;
-import fr.uha.ensisa.dbpediaquizz.questions.QuestionCapitale;
-import fr.uha.ensisa.dbpediaquizz.questions.QuestionChampionnatFranceFootball;
-import fr.uha.ensisa.dbpediaquizz.questions.QuestionRoiEtPredecesseur;
+import fr.uha.ensisa.dbpediaquizz.questions.geographie.QuestionCapitale;
+import fr.uha.ensisa.dbpediaquizz.questions.histoire.QuestionRoiEtPredecesseur;
+import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionChampionnatFranceFootball;
 
 public class ThemeCulture extends Theme{
 

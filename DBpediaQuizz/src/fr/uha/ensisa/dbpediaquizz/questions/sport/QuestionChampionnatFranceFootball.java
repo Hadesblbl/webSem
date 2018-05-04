@@ -1,9 +1,10 @@
-package fr.uha.ensisa.dbpediaquizz.questions;
+package fr.uha.ensisa.dbpediaquizz.questions.sport;
 
 import java.util.List;
 
 import org.apache.jena.query.QuerySolution;
 
+import fr.uha.ensisa.dbpediaquizz.questions.Question;
 import fr.uha.ensisa.dbpediaquizz.util.Constantes;
 import fr.uha.ensisa.dbpediaquizz.util.DBpediaQuery;
 
