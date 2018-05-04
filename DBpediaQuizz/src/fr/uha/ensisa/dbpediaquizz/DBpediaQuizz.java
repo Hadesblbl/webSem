@@ -17,8 +17,8 @@ public class DBpediaQuizz {
 		System.out.println("******* DBpedia Quizz *******");
 		System.out.println("Choisissez votre thème parmi les thèmes suivants :\n");
 		System.out.println("0. Géographie\n");
-		System.out.println("1. Sport\n");
-		System.out.println("2. Histoire\n");
+		System.out.println("1. Histoire\n");
+		System.out.println("2. Sport\n");
 		System.out.println("3. Culture\n");
 		System.out.println("4. Général (Tous types de questions confondus)\n");
 		int choisi=entry.nextInt();
