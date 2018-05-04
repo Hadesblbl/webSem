@@ -23,7 +23,7 @@ public class QuestionMonnaie extends Question{
 		List<QuerySolution> monnaies = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = monnaies.get((int)(Math.random()*monnaies.size()));
 
-		this.enonce = "Quelle est le code iso de la monnaie de "+ligne.getLiteral("?nomPays").getString()+" ?";
+		this.enonce = "Quelle est le code ISO de la monnaie de "+ligne.getLiteral("?nomPays").getString()+" ?";
 		this.bonneReponse= ligne.getLiteral("?nomDevise").getString();
 
 		int index=0;

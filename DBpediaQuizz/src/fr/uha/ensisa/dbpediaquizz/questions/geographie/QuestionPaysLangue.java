@@ -43,7 +43,7 @@ public class QuestionPaysLangue extends Question{
 	else
 	{
 
-		this.enonce = "Dans quelle pays la langue"+ligne.getLiteral("?nomLangue").getString()+" est t'elle utilisée ?";
+		this.enonce = "Dans quelle pays la langue "+ligne.getLiteral("?nomLangue").getString()+" est t'elle utilisée ?";
 		this.bonneReponse= ligne.getLiteral("?nomPays").getString();
 
 		int index=0;

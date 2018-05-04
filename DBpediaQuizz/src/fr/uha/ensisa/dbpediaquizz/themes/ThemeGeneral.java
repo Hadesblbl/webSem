@@ -1,27 +1,28 @@
 package fr.uha.ensisa.dbpediaquizz.themes;
 
 import fr.uha.ensisa.dbpediaquizz.questions.Question;
-import fr.uha.ensisa.dbpediaquizz.questions.geographie.QuestionCapitale;
-import fr.uha.ensisa.dbpediaquizz.questions.histoire.QuestionRoiEtPredecesseur;
-import fr.uha.ensisa.dbpediaquizz.questions.sport.QuestionChampionnatFranceFootball;
 
 public class ThemeGeneral extends Theme{
 
-
+	/**
+	 * (non-Javadoc)
+	 * @see fr.uha.ensisa.dbpediaquizz.themes.Theme#createQuestion()
+	 **/
 	@Override
 	public Question createQuestion() {
 		int questionType= (int)(Math.random()*3);
-		Question question;
+		Theme theme;
 		switch(questionType)
 		{
-			case 0 : 	question=new QuestionCapitale();
+			case 0 : 	theme=new ThemeGeographie();
 						break;
-			case 1 :	question=new QuestionRoiEtPredecesseur();
-			break;			
-			default : 	question= new QuestionChampionnatFranceFootball();
+			case 1 :	theme=new ThemeHistoire();
+						break;		
+			case 2 :    theme=new ThemeSport();
+			default : 	theme=new ThemeCulture();
 						break;
 		}
-		return question;
+		return theme.createQuestion();
 	}
 
 }

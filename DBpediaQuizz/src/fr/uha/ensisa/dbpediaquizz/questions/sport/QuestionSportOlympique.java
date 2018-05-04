@@ -40,7 +40,7 @@ public class QuestionSportOlympique extends Question {
 		else
 		{
 
-			this.enonce = "Quel sport est entr� aux jeux olympique en "+ligne.getLiteral("?olympique").getString()+ " ?";
+			this.enonce = "Quel sport est entré aux jeux olympiques en "+ligne.getLiteral("?olympique").getString()+ " ?";
 			this.bonneReponse= ligne.getLiteral("?nomPays").getString();
 
 			int index=0;
