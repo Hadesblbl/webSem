@@ -1,0 +1,60 @@
+ville d'ile de france ayant plus de 100 000 habitant
+
+prefix db-owl: <http://dbpedia.org/ontology/>
+ select ?nomVille where {
+   ?ville db-owl:region <http://fr.dbpedia.org/resource/Île-de-France> . 
+   ?ville rdf:type db-owl:Settlement .
+   ?ville <http://www.w3.org/2000/01/rdf-schema#label> ?nomVille.
+   ?ville db-owl:populationTotal ?population .
+   FILTER (?population > 100000)
+   FILTER (lang(?nomVille) = 'fr')
+ }
+ 
+ langue dans chaque pays ok
+ SELECT ?nomLangue ?nomPays
+WHERE {
+      ?langage a <http://dbpedia.org/ontology/Language>.
+      ?langage dbo:spokenIn ?pays.
+      ?langage rdfs:label ?nomLangue.
+      ?pays rdfs:label ?nomPays.
+      FILTER (lang(?nomLangue) = 'fr').
+      FILTER (lang(?nomPays) = 'fr')
+      }
+      
+      
+select ?nomPays where{
+             ?pays a <http://dbpedia.org/ontology/Country>. 
+             ?pays rdfs:label ?nomPays.
+             ?pays foaf:name ?  
+             FILTER (lang(?nomPays) = 'fr')
+	     }
+	     
+pays et devise
+select distinct ?nomPays ?devise where {?pays a <http://dbpedia.org/ontology/Country>.
+                                     ?pays <http://www.w3.org/2000/01/rdf-schema#label> ?nomPays.
+                                     ?pays dbp:englishmotto ?devise.
+                                     FILTER (lang(?nomPays) = 'fr')                             
+}LIMIT 1000
+	     
+sport et entré aux jeux olympique 
+SELECT ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>.
+                                 ?sport foaf:name ?nomSport.
+                                 ?sport prop-fr:olympique ?olympique.
+                                 FILTER (?olympique<2018).
+                                 FILTER (lang(?nomSport) = 'fr')}
+                                 
+                                 
+joueur de foot et équipe mais équipe non connu ?bizare
+SELECT ?nomJoueur ?nomEquipe WHERE { ?joueur a <http://dbpedia.org/ontology/SoccerPlayer>.
+                               ?joueur foaf:name ?nomJoueur.
+                               ?joueur dbp:originalteam ?equipe.
+                               ?equipe foaf:name ?nomEquipe}	     
+
+ taille de l'equipe par sport 
+ SELECT ?nomSport ?tailleEquipe WHERE{
+   ?sport a <http://dbpedia.org/ontology/Sport>.
+   ?sport dbo:teamSize ?tailleEquipe.
+   ?sport foaf:name ?nomSport
+   
+}
+       
