@@ -1,5 +1,13 @@
 package fr.uha.ensisa.dbpediaquizz.themes;
 
-public class ThemeSport {
+import fr.uha.ensisa.dbpediaquizz.questions.Question;
+
+public class ThemeSport extends Theme{
+
+	@Override
+	public Question createQuestion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 }
