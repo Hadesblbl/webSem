@@ -16,22 +16,22 @@ String requete = "select ?nomJoueur ?nomEquipe WHERE { ?joueur a <http://dbpedia
 		"                                     ?joueur dbpedia-owl:birthName ?nomJoueur." + 
 		"                                     ?equipe rdfs:label ?nomEquipe" + 
 		"                                     FILTER (lang(?nomEquipe)='fr')}";
-List<QuerySolution> langage = DBpediaQuery.execRequete(requete);
-QuerySolution ligne = langage.get((int)(Math.random()*langage.size()));
+List<QuerySolution> joueurs = DBpediaQuery.execRequete(requete);
+QuerySolution ligne = joueurs.get((int)(Math.random()*joueurs.size()));
 
 if(Math.random()<0.5)
 {
 
-	this.enonce = "Quelle est la langue de "+ligne.getLiteral("?nomPays").getString()+" ?";
-	this.bonneReponse= ligne.getLiteral("?nomLangue").getString();
+	this.enonce = "Dans quelle équipe est "+ligne.getLiteral("?nomJoueur").getString()+" ?";
+	this.bonneReponse= ligne.getLiteral("?nomEquipe").getString();
 
 	int index=0;
 	while(index<Constantes.NB_REPONSES-1)
 	{
-		ligne = langage.get((int)(Math.random()*langage.size()));
-		if(reponseAbsente(ligne.getLiteral("?nomPays").getString()))
+		ligne = joueurs.get((int)(Math.random()*joueurs.size()));
+		if(reponseAbsente(ligne.getLiteral("?nomEquipe").getString()))
 		{
-			this.mauvaisesReponses[index]=ligne.getLiteral("?nomPays").getString();
+			this.mauvaisesReponses[index]=ligne.getLiteral("?nomEquipe").getString();
 			index++;
 		}
 	}
@@ -40,19 +40,20 @@ if(Math.random()<0.5)
 else
 {
 
-	this.enonce = "Dans quelle pays la langue"+ligne.getLiteral("?nomLangue").getString()+" est t'elle utilis�e ?";
-	this.bonneReponse= ligne.getLiteral("?nomPays").getString();
+	this.enonce = "Lequel de ces joueurs est dans l'équipe suivante :"+ligne.getLiteral("?nomEquipe").getString()+" ?";
+	this.bonneReponse= ligne.getLiteral("?nomJoueur").getString();
 
 	int index=0;
 	while(index<Constantes.NB_REPONSES-1)
 	{
-		ligne = langage.get((int)(Math.random()*langage.size()));
-		if(!this.bonneReponse.equalsIgnoreCase(ligne.getLiteral("?nomPays").getString()))
+		ligne = joueurs.get((int)(Math.random()*joueurs.size()));
+		if(!this.bonneReponse.equalsIgnoreCase(ligne.getLiteral("?nomJoueur").getString()))
 		{
-			this.mauvaisesReponses[index]=ligne.getLiteral("?nomPays").getString();
+			this.mauvaisesReponses[index]=ligne.getLiteral("?nomJoueur").getString();
 			index++;
 		}
 	}
-}
+	}
+	}
 
 }
