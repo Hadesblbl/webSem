@@ -14,13 +14,13 @@ public class QuestionSportOlympique extends Question {
                           + "?sport prop-fr:olympique ?olympique."
                           + "FILTER (?olympique<2018)"
                           + "FILTER (lang(?nomSport) = 'fr')}";
-		List<QuerySolution> olympique = DBpediaQuery.execRequete(olympique);
+		List<QuerySolution> olympique = DBpediaQuery.execRequete(requete);
 		QuerySolution ligne = olympique.get((int)(Math.random()*olympique.size()));
 
 		if(Math.random()<0.5)
 		{
 
-			this.enonce = "Quelle est l'année d'entrée du "+ligne.getLiteral("?nomSport").getString()+" aux jeux olympique ?";
+			this.enonce = "Quelle est l'annÃ©e d'entrÃ©e du "+ligne.getLiteral("?nomSport").getString()+" aux jeux olympiques ?";
 			this.bonneReponse= ligne.getLiteral("?olympique").getString();
 
 			int index=0;
@@ -38,7 +38,7 @@ public class QuestionSportOlympique extends Question {
 		else
 		{
 
-			this.enonce = "Quel sport est entré aux jeux olympique en "+ligne.getLiteral("?olympique").getString()+ " ?";
+			this.enonce = "Quel sport est entrï¿½ aux jeux olympique en "+ligne.getLiteral("?olympique").getString()+ " ?";
 			this.bonneReponse= ligne.getLiteral("?nomPays").getString();
 
 			int index=0;
