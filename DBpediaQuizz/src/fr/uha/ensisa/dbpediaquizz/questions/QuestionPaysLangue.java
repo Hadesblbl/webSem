@@ -13,7 +13,7 @@ public class QuestionPaysLangue extends Question{
 	super(Constantes.GEOGRAPHIE);
 	//Récupère toutes les capitales
 	String requete = "select ?nomLangue ?nomPays where { ?langage a <http://dbpedia.org/ontology/Language>."
-			         + "?langage dbo:spokenIn ?pays."
+			         + "?langage <http://dbpedia.org/ontology/spokenIn> ?pays."
 			         + "?langage rdfs:label ?nomLangue."
 			         + "?pays rdfs:label ?nomPays."
 		             + "FILTER (lang(?nomLangue) = 'fr')"

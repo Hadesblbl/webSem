@@ -13,6 +13,7 @@ public class DBpediaQuizz {
 		int currentQuestion=0, score=0;
 		Scanner entry = new Scanner(System.in);
 		System.out.println("******* DBpedia Quizz *******");
+		System.out.println("Choisissez votre thème parmi les thèmes suivants :\n);
 		System.out.println("C'est parti pour "+Constantes.NB_QUESTIONS+" questions !");
 		while(currentQuestion<Constantes.NB_QUESTIONS)
 		{
