@@ -8,12 +8,13 @@ public class ThemeCulture extends Theme{
 
 	@Override
 	public Question createQuestion() {
-		int questionType= (int)(Math.random()*1);
+		int questionType= (int)(Math.random()*2);
 		Question question;
 		switch(questionType)
 		{
 		case 0:
 			question= new QuestionFilm();
+			break;
 		default : 	
 			question= new QuestionDrapeau();
 			break;

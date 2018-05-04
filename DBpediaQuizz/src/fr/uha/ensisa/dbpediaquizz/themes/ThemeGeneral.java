@@ -10,7 +10,7 @@ public class ThemeGeneral extends Theme{
 	 **/
 	@Override
 	public Question createQuestion() {
-		int questionType= (int)(Math.random()*3);
+		int questionType= (int)(Math.random()*4);
 		Theme theme;
 		switch(questionType)
 		{

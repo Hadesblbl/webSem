@@ -12,11 +12,11 @@ public class QuestionFilm extends Question {
 
 	public QuestionFilm() {
 		super(Constantes.CULTURE);
-		String requete = "select ?titre ?nomGenre ?nomRealisateur ?sortie where {?film a <http://dbpedia.org/ontology/Film>." + 
-				"?film <http://fr.dbpedia.org/property/titre> ?titre." + 
-				"?film <http://fr.dbpedia.org/property/genre> ?genre." + 
-				"?film <http://fr.dbpedia.org/property/réalisation> ?realisateur." + 
-				"?film <http://fr.dbpedia.org/property/annéeDeSortie> ?sortie." + 
+		String requete = "select ?titre ?nomGenre ?nomRealisateur ?sortie where {?film a <http://dbpedia.org/ontology/Film>;" + 
+				"<http://fr.dbpedia.org/property/titre> ?titre;" + 
+				"<http://fr.dbpedia.org/property/genre> ?genre;" + 
+				"<http://fr.dbpedia.org/property/réalisation> ?realisateur;" + 
+				"<http://fr.dbpedia.org/property/annéeDeSortie> ?sortie." + 
 				"?realisateur <http://fr.dbpedia.org/property/nom> ?nomRealisateur." + 
 				"?genre <http://www.w3.org/2000/01/rdf-schema#label> ?nomGenre." + 
 				"FILTER (lang(?titre)='fr')." + 
