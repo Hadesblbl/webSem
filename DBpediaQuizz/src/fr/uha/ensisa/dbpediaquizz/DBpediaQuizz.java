@@ -8,6 +8,7 @@ import fr.uha.ensisa.dbpediaquizz.themes.ThemeFactory;
 import fr.uha.ensisa.dbpediaquizz.util.Constantes;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -52,7 +53,10 @@ public class DBpediaQuizz extends Application{
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		primaryStage.setTitle("Quizz"); 
+		Label label= new Label();
+		label.setText("Choisissez votre thème parmi les thèmes suivants :\n0. Géographie\n1.Histoire\n2.Sport\n3.Culture\n4.Général (Tous types de questions confondus)\n");
 		final Pane root = new Pane();
+		root.getChildren().add(label);
 		final Scene scene = new Scene(root, 700, 600); 
 		primaryStage.setScene(scene); 
 		primaryStage.show(); 
