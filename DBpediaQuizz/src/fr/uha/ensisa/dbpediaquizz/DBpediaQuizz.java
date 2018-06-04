@@ -28,11 +28,11 @@ public class DBpediaQuizz extends Application{
 	Label label= new Label("Choisissez votre thème parmi les thèmes suivants :");
 	Label lastQuestionResponse = new Label();
 	Label questionLabel = new Label();
-	Button button1= new Button("Geographie");
+	Button button1= new Button("Géographie");
 	Button button2= new Button("Histoire");
 	Button button3= new Button("Sport");
 	Button button4= new Button("Culture");
-	Button button5= new Button("Général (tous types de question confondus)");
+	Button button5= new Button("Général (tous types de questions confondus)");
 
 	public static void main(String[] args) {
 		int currentQuestion=0, score=0;

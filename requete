@@ -2,7 +2,7 @@ ville d'ile de france ayant plus de 100 000 habitant
 
 prefix db-owl: <http://dbpedia.org/ontology/>
  select ?nomVille where {
-   ?ville db-owl:region <http://fr.dbpedia.org/resource/Île-de-France> . 
+   ?ville db-owl:region <http://fr.dbpedia.org/resource/ï¿½le-de-France> . 
    ?ville rdf:type db-owl:Settlement .
    ?ville <http://www.w3.org/2000/01/rdf-schema#label> ?nomVille.
    ?ville db-owl:populationTotal ?population .
@@ -36,7 +36,7 @@ select distinct ?nomPays ?devise where {?pays a <http://dbpedia.org/ontology/Cou
                                      FILTER (lang(?nomPays) = 'fr')                             
 }LIMIT 1000
 	     
-sport et entré aux jeux olympique 
+sport et entrï¿½ aux jeux olympique 
 SELECT ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>.
                                  ?sport foaf:name ?nomSport.
                                  ?sport prop-fr:olympique ?olympique.
@@ -44,7 +44,7 @@ SELECT ?nomSport ?olympique WHERE { ?sport a <http://dbpedia.org/ontology/Sport>
                                  FILTER (lang(?nomSport) = 'fr')}
                                  
                                  
-joueur de foot et équipe mais équipe non connu ?bizare
+joueur de foot et ï¿½quipe mais ï¿½quipe non connu ?bizare
 SELECT ?nomJoueur ?nomEquipe WHERE { ?joueur a <http://dbpedia.org/ontology/SoccerPlayer>.
                                ?joueur foaf:name ?nomJoueur.
                                ?joueur dbp:originalteam ?equipe.
@@ -57,4 +57,12 @@ SELECT ?nomJoueur ?nomEquipe WHERE { ?joueur a <http://dbpedia.org/ontology/Socc
    ?sport foaf:name ?nomSport
    
 }
-       
+
+select ?nom ?latitude ?longitude ?loc where { ?m a <http://dbpedia.org/ontology/Place>.
+                  ?m a <http://dbpedia.org/ontology/ArchitecturalStructure>.
+                  ?m a <http://dbpedia.org/ontology/Building>.
+                  ?m  rdfs:label ?nom.
+                  ?m geo:lat ?latitude.
+                  ?m geo:long ?longitude.
+                  FILTER (lang(?nom)='fr').
+                  FILTER regex (?nom, 'Tour')}
