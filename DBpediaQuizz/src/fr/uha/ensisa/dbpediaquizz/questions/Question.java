@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 import fr.uha.ensisa.dbpediaquizz.util.Constantes;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public abstract class Question {
 
@@ -18,6 +20,30 @@ public abstract class Question {
 		this.mauvaisesReponses= new String[3];
 	}
 
+	public int ask(Label questionLabel,Button b1,Button b2,Button b3,Button b4) {
+		//Place les réponses dans le désordre
+		String[] reponses= new String[4];
+		Arrays.fill(reponses, null);
+		int bonneReponseIndex = (int)(Math.random()*Constantes.NB_REPONSES);
+		reponses[bonneReponseIndex]=bonneReponse;
+		int mauvaisesReponsesPlacees=0;
+		while(mauvaisesReponsesPlacees<Constantes.NB_REPONSES-1)
+		{
+			int index=(int)(Math.random()*Constantes.NB_REPONSES);
+			if(reponses[index]==null)
+			{
+				reponses[index]=mauvaisesReponses[mauvaisesReponsesPlacees];
+				mauvaisesReponsesPlacees++;
+			}
+		}
+		questionLabel.setText(enonce);
+		b1.setText(reponses[0]);
+		b2.setText(reponses[1]);
+		b3.setText(reponses[2]);
+		b4.setText(reponses[3]);
+		return bonneReponseIndex;
+	}
+	
 	public int ask(Scanner entry)
 	{
 		//Place les réponses dans le désordre
